@@ -1,0 +1,8 @@
+/*!
+    \page known-issues.html
+    \title Known Issues in 4.3.5
+
+    An up-to-date list of known issues with Qt 4.3.5 can be found via the
+    \l{Task Tracker} on the Trolltech website which provides additional information
+    about known issues and tasks related to Qt.
+*/

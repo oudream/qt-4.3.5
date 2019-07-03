@@ -1,0 +1,239 @@
+/****************************************************************************
+**
+** Copyright (C) 2006-2008 Trolltech ASA. All rights reserved.
+**
+** This file is part of the documentation of the Qt Toolkit.
+**
+** This file may be used under the terms of the GNU General Public
+** License versions 2.0 or 3.0 as published by the Free Software
+** Foundation and appearing in the files LICENSE.GPL2 and LICENSE.GPL3
+** included in the packaging of this file.  Alternatively you may (at
+** your option) use any later version of the GNU General Public
+** License if such license has been publicly approved by Trolltech ASA
+** (or its successors, if any) and the KDE Free Qt Foundation. In
+** addition, as a special exception, Trolltech gives you certain
+** additional rights. These rights are described in the Trolltech GPL
+** Exception version 1.2, which can be found at
+** http://www.trolltech.com/products/qt/gplexception/ and in the file
+** GPL_EXCEPTION.txt in this package.
+**
+** Please review the following information to ensure GNU General
+** Public Licensing requirements will be met:
+** http://trolltech.com/products/qt/licenses/licensing/opensource/. If
+** you are unsure which license is appropriate for your use, please
+** review the following information:
+** http://trolltech.com/products/qt/licenses/licensing/licensingoverview
+** or contact the sales department at sales@trolltech.com.
+**
+** In addition, as a special exception, Trolltech, as the sole
+** copyright holder for Qt Designer, grants users of the Qt/Eclipse
+** Integration plug-in the right for the Qt/Eclipse Integration to
+** link to functionality provided by Qt Designer and its related
+** libraries.
+**
+** This file is provided "AS IS" with NO WARRANTY OF ANY KIND,
+** INCLUDING THE WARRANTIES OF DESIGN, MERCHANTABILITY AND FITNESS FOR
+** A PARTICULAR PURPOSE. Trolltech reserves all rights not expressly
+** granted herein.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+**
+****************************************************************************/
+
+/*!
+    \page qtopiacore-running.html
+
+    \title Running Qtopia Core Applications
+    \ingroup qtopiacore
+
+    A \l {Qtopia Core} application requires a server application to be
+    running, or to be the server application itself. Any \l {Qtopia
+    Core} application can be the server application by constructing
+    the QApplication object with the QApplication::GuiServer type, or
+    by running the application with the \c -qws command line option.
+
+    Applications can run using both single and multiple displays, and
+    various command line options are available.
+
+    Note that this document assumes that you either are using the \l
+    {Qtopia Core's Virtual Framebuffer} or that you are running \l
+    {Qtopia Core} using the \l {The VNC Protocol and Qtopia Core}{VNC}
+    protocol, \e or that you have the Linux framebuffer configured
+    correctly and that no server process is running. (To test that the
+    Linux framebuffer is set up correctly, use the program provided by
+    the \l {Testing the Linux Framebuffer} document.)
+
+    \tableofcontents
+
+    \section1 Using a Single Display
+
+    To run the application using a single display, change to a Linux
+    console and select an application to run, e.g. \l {Text
+    Edit}{demos/textedit}.  Run the application with the \c -qws
+    option:
+
+    \code
+        cd path/to/Qtopia/Core/demos/textedit
+        ./textedit -qws
+    \endcode
+
+    \table 100%
+    \row
+    \o
+    Provided that the environment variables are adjusted properly
+    during the \l {Installing Qtopia Core}{installation process}, you
+    should see the \l {Text Edit} demo appear.
+
+    It might be that the hardware drivers must be specified explicitly
+    to make everything work properly. For more information, please
+    consult the following documentation:
+
+    \list
+        \o \l {Qtopia Core Pointer Handling}{Pointer Handling}
+        \o \l {Qtopia Core Character Input}{Character Input}
+        \o \l {Qtopia Core Display Management}{Display Management}
+    \endlist
+
+    \o
+    \inlineimage qtopiacore-runningapplication.png
+    \endtable
+
+    Additional applications can be run as clients, i.e., by running
+    these applications \e without the \c -qws option they will connect
+    to the existing server as clients. You can exit the server
+    application at any time using \gui{Ctrl+Alt+Backspace}.
+
+    \section1 Using Multiple Displays
+
+    Qtopia Core also allows multiple displays to be used
+    simultaneously. There are two ways of achieving this: Either run
+    multiple Qtopia Core server processes, or use \l {Qtopia Core}'s
+    ready-made \c Multi screen driver.
+
+    When running multiple server processes, the screen driver (and
+    display number) must be specified for each process using the \c
+    -display command line option or by setting the QWS_DISPLAY
+    environment variable. For example:
+
+    \code
+        ./myfirstserverapplication -qws -display "transformed:rot90:1"
+        ./mysecondserverapplication -qws -display "QVFb:2"
+    \endcode
+
+    See the \l {Qtopia Core Display Management}{display management}
+    documentation for more details on how to specify a screen
+    driver. Note that you must also specify the display (i.e., server
+    process) when starting client applications:
+
+    \code
+        ./myclientapplication -display "QVFb:2"
+    \endcode
+
+    There is no way of moving a client from one display to another
+    when running multiple server processes. Using the \c Multi screen
+    driver, on the other hand, applications can easiliy be moved
+    between the various screens.
+
+    The \c Multi screen driver can be specified just like any other
+    screen driver by using the \c -display command line option or by
+    setting the QWS_DISPLAY environment variable. For example:
+
+    \code
+        ./myserverapplication -qws -display "Multi: QVFb:0
+                QVFb:1:offset=0,0 VNC:offset=640,0 :2"
+    \endcode
+
+    See the \l {Qtopia Core Display Management}{display management}
+    documentation for details regarding arguments.
+
+    \section1 Command Line Options
+
+    \table 100%
+    \header
+    \o Option \o Description
+    \row
+    \o \bold -fn <font>
+    \o
+    Defines the application font. For example:
+    \code
+        ./myapplication -fn helvetica
+    \endcode
+    The font should be specified using an X logical font description.
+    \row
+    \o \bold -bg <color>
+    \o
+    Sets the default application background color. For example:
+    \code
+        ./myapplication -bg blue
+    \endcode
+    The color-name must be one of the names recognized by the QColor constructor.
+    \row
+    \o \bold -btn <color> \o
+    Sets the default button color. For example:
+    \code
+        ./myapplication -btn green
+    \endcode
+    The color-name must be one of the names recognized by the QColor constructor.
+    \row
+    \o \bold -fg <color> \o
+    Sets the default application foreground color. For example:
+    \code
+        ./myapplication -fg 'dark blue'
+    \endcode
+    The color-name must be one of the names recognized by the QColor constructor.
+    \row
+    \o \bold -name <objectname> \o
+    Sets the application name, i.e. the application object's object name. For example:
+    \code
+        ./myapplication -name texteditapplication
+    \endcode
+    \row
+    \o \bold -title <title> \o
+    Sets the application's title. For example:
+    \code
+        ./myapplication -title 'Text Edit'
+    \endcode
+    \row
+    \o \bold -geometry <width>x<height>x<Xoffset>x<YOffset> \o
+    Sets the client geometry of the first window that is shown. For example:
+    \code
+        ./myapplication -geometry 300x200x50x50
+    \endcode
+    \row
+    \o \bold -keyboard \o
+    Enables the keyboard.
+
+    See also: \l {Qtopia Core Character Input}.
+    \row
+    \o \bold -nokeyboard \o
+    Disables the keyboard.
+    \row
+    \o \bold -mouse \o
+    Enables the mouse cursor.
+
+    See also: \l {Qtopia Core Pointer Handling}.
+    \row
+    \o \bold -nomouse \o
+    Disables the mouse cursor.
+    \row
+    \o \bold -qws \o
+    Runs the application as a server application, i.e. constructs a
+    QApplication object of the QApplication::GuiServer type.
+    \row
+    \o \bold -display \o
+    Specifies the screen driver.
+
+    See also: \l {Qtopia Core Display Management}.
+    \row
+    \o \bold -decoration <style>\o
+    Sets the application decoration. For example:
+    \code
+        ./myapplication -decoration windows
+    \endcode
+    The supported styles are \c windows, \c default and \c styled.
+
+    See also QDecoration.
+
+    \endtable
+*/

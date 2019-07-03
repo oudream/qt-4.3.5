@@ -1,0 +1,52 @@
+/*!
+  \group gallery
+  \ingroup topics
+  \title Qt Widget Gallery
+  \brief Qt widgets shown in different styles on various platforms.
+
+  Qt's support for widget styles and themes enables your application to fit in
+  with the native desktop enviroment. Below, you can find links to the various
+  widget styles that are supplied with Qt 4.
+
+  \table
+  \row \i \inlineimage plastique-treeview.png
+  \i \bold{\l{gallery-plastique.html}{Plastique Style Widget Gallery}}
+
+  The Plastique style is provided by QPlastiqueStyle.
+
+  \row \i \inlineimage cleanlooks-tabwidget.png
+  \i \bold{\l{gallery-cleanlooks.html}{Cleanlooks Style Widget Gallery}}
+
+  The Cleanlooks style is provided by QCleanlooksStyle.
+
+  \row \i \inlineimage windowsvista-tabwidget.png
+  \i \bold{\l{gallery-windowsvista.html}{Windows Vista Style Widget Gallery}}
+
+  The Windows Vista style is provided by QWindowsVistaStyle.
+
+  \row \i \inlineimage windowsxp-tabwidget.png
+  \i \bold{\l{gallery-windowsxp.html}{Windows XP Style Widget Gallery}}
+
+  The Windows XP style is provided by QWindowsXPStyle.
+
+  \row \i \inlineimage macintosh-tabwidget.png
+  \i \bold{\l{gallery-macintosh.html}{Macintosh Style Widget Gallery}}
+
+  The Macintosh style is provided by QMacStyle.
+
+  \row \i \inlineimage windows-tableview.png
+  \i \bold{\l{gallery-windows.html}{Windows Style Widget Gallery}}
+
+  The Windows style is provided by QWindowsStyle.
+
+  \row \i \inlineimage motif-tabwidget.png
+  \i \bold{\l{gallery-motif.html}{Motif Style Widget Gallery}}
+
+  The Motif style is provided by QMotifStyle.
+
+  \row \i \inlineimage cde-treeview.png
+  \i \bold{\l{gallery-cde.html}{CDE Style Widget Gallery}}
+
+  The Common Desktop Environment style is provided by QCDEStyle.
+  \endtable
+*/

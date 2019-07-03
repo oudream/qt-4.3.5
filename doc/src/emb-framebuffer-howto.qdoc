@@ -1,0 +1,12 @@
+/*!
+    \page qtopiacore-testingframebuffer.html
+
+    \title Testing the Linux Framebuffer
+    \subtitle for Qtopia Core
+    \ingroup qtopiacore
+
+    To test that the Linux framebuffer is set up correctly, and that
+    the device permissions are correct, use the program found in 
+    examples/qtopiacore/framebuffer which opens the frame buffer and draws
+    three squares of different colors.
+*/

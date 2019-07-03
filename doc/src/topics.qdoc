@@ -1,0 +1,186 @@
+/*!
+\title Topics
+\group topics
+
+This page provides a collection of documents grouped by topic.
+
+The \l{Grouped Classes} page contains a similar list of groups for
+Qt's class documentation.
+
+\generatelist{related}
+*/
+
+/*!
+\group architecture
+\title Architecture
+\ingroup topics
+\brief Documents about Qt's architecture and design.
+
+These documents describe aspects of Qt's architecture and design,
+including overviews of core Qt features and technologies.
+
+\generatelist{related}
+*/
+
+/*!
+\group buildsystem
+\title Build System
+\ingroup topics
+\brief Tools to help automate building and installation of Qt applications.
+
+Qt is provided with a set of build tools to help developers automate
+the process of building and installing Qt applications.
+
+\table 100%
+\header \o Development \o Cross-Platform Issues \o Specific Tools
+\row
+\o
+ \list
+    \o \l {Debugging Techniques}
+    \o \l {Qt's Tools}
+    \o \l {The Qt Resource System}
+    \o \l {Using Precompiled Headers}
+\endlist
+\o
+\list
+    \o \l {Cross Compiling Qtopia Core Applications}
+    \o \l {Deploying Qt Applications}
+    \o \l {Installation}{Installing Qt}
+    \o \l {Window System Specific Notes}
+\endlist
+\o
+\list
+    \o \l lupdate and \l lrelease
+    \o \l {moc}{Meta-Object Compiler (moc)}
+    \o \l {User Interface Compiler (uic)}
+    \o \l {Resource Compiler (rcc)}
+\endlist
+\endtable
+
+
+*/
+
+/*!
+\group classlists
+\title Class and Function Indexes
+\ingroup topics
+\brief Collections of classes and functions grouped together into lists.
+
+The following documents contain collections of classes, grouped by
+subject area or related to particular functionality, or comprehensive
+lists of classes and functions.
+
+\generatelist{related}
+*/
+
+/*!
+\group codecs
+\title Codecs
+\ingroup topics
+\brief Codec support in Qt.
+
+These codecs provide facilities for conversion between Unicode and
+specific text encodings.
+
+\generatelist{related}
+*/
+
+/*!
+\group gui-programming
+\title GUI Programming
+\ingroup topics
+\brief Resources for developers of GUI applications.
+
+The following list contains links to guides and other resources for
+developers of graphical user interface (GUI) applications.
+
+\generatelist{related}
+*/
+
+/*!
+\group howto
+\title How To Guides and Learning Resources
+\ingroup topics
+\brief Guides providing help on aspects of using Qt.
+
+These guides provide specific help about specific Qt-related topics.
+
+\generatelist{related}
+*/
+
+/*!
+\group licensing
+\title Licensing Information
+\ingroup topics
+\brief Information about licenses and licensing issues.
+
+These documents include information about Qt's licenses and the licenses
+of third party components used in Qt.
+
+\generatelist{related}
+*/
+
+/*!
+\group platform-notes
+\title Platform-Specific Notes
+\ingroup topics
+\brief Documents describing platform-specific features of Qt.
+
+These documents describe platform-specific features provided by Qt, and
+discuss issues related to particular platforms and environments.
+
+\generatelist{related}
+*/
+
+/*!
+\group porting
+\title Porting Guides
+\ingroup topics
+\brief Guides related to porting Qt applications and libraries.
+
+A number of guides and documents are available that cover porting issues,
+from detailed coverage of API differences between Qt 3 and Qt 4 to
+platform and tool-specific documentation.
+
+\generatelist{related}
+*/
+
+/*!
+\title Text Processing
+\group text-processing
+\ingroup topics
+\brief Text processing guides and classes.
+
+Qt provides an extensive collection of classes for text handling.
+The following guides and references describe basic text handling, support
+for internationalization and character encodings, and Qt's rich text
+system.
+
+\generatelist{related}
+*/
+
+/*!
+\title Tools for ActiveQt
+\group activeqt-tools
+\ingroup topics
+\brief Tools to help integrate Qt applications with ActiveX components.
+
+These tools provide support for integrating Qt with ActiveX components.
+
+\generatelist{related}
+
+\sa {ActiveQt Framework}
+*/
+
+/*!
+\title Scripting with ECMAScript
+\group scripting
+\ingroup topics
+\brief Guides and references covering application scripting with ECMAScript.
+
+Qt 4.3 and later provides support for application scripting with ECMAScript.
+The following guides and references cover aspects of programming with
+ECMAScript and Qt.
+
+\generatelist{related}
+*/

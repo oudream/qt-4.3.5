@@ -1,0 +1,47 @@
+/*!
+    \page activeqt.html
+    \title ActiveQt Framework
+    \brief An overview of Qt's ActiveX and COM integration on Windows.
+
+    \ingroup platform-notes
+    \keyword ActiveQt
+
+    Qt's ActiveX and COM support allows Qt/Windows developers to:
+
+    \list 1
+    \o Access and use ActiveX controls and COM objects provided by any 
+    ActiveX server in their Qt applications.
+    \o Make their Qt applications available as COM servers, with
+    any number of Qt objects and widgets as COM objects and ActiveX 
+    controls.
+    \endlist
+
+    The ActiveQt framework consists of two modules:
+
+    \list
+    \o The \l QAxContainer module is a static
+       library implementing QObject and QWidget subclasses, QAxObject and
+       QAxWidget, that act as containers for COM objects and ActiveX
+       controls.
+    \o The \l QAxServer module is a static library that implements
+       functionality for in-process and executable COM servers. This
+       module provides the QAxAggregated, QAxBindable and QAxFactory
+       classes.
+    \endlist
+
+    To build the static libraries, change into the \c activeqt directory 
+    (usually \c QTDIR/src/activeqt), and run \c qmake and your make
+    tool in both the \c container and the \c control subdirectory.
+    The libraries \c qaxcontainer.lib and \c qaxserver.lib will be linked 
+    into \c QTDIR/lib.
+
+    If you are using a shared configuration of Qt enter the \c plugin
+    subdirectory and run \c qmake and your make tool to build a
+    plugin that integrates the QAxContainer module into \l{Qt
+    Designer}.
+
+    The ActiveQt modules are part of the \l{Qt Desktop Edition}. They
+    are \e not part of the \l{Qt Open Source Edition}.
+
+    \sa {QAxContainer Module}, {QAxServer Module}
+*/

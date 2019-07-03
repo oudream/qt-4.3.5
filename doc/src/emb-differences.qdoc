@@ -1,0 +1,31 @@
+/*!
+    \page qtopiacore-differences.html
+
+    \title Porting Qt Applications to Qtopia Core
+    \ingroup porting
+    \ingroup qtopiacore
+
+    Existing Qt applications should require no porting provided there is no
+    platform dependent code.
+
+    \table 100%
+    \header \o Platform Dependent Code
+
+    \row
+    \o
+    Platform dependent code includes system calls, calls to the
+    underlying window system (Windows or X11), and Qt platform
+    specific methods such as QApplication::x11EventFilter().
+
+    For cases where it is necessary to use platform dependent code
+    there are macros defined that can be used to enable and disable
+    code for each platform using \c #ifdef directives:
+
+    \list
+    \o Qtopia Core: Q_WS_QWS
+    \o Qt/Mac: Q_WS_MAC
+    \o Qt/Windows: Q_WS_WIN
+    \o Qt/X11: Q_WS_X11
+    \endlist
+    \endtable
+*/

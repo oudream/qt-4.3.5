@@ -1,0 +1,407 @@
+/****************************************************************************
+**
+** Copyright (C) 1992-2008 Trolltech ASA. All rights reserved.
+**
+** This file is part of the Qt GUI Toolkit.
+** EDITIONS: FREE, PROFESSIONAL, ENTERPRISE
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+**
+****************************************************************************/
+
+/****************************************************************************
+** Please remember to update the Qt/Mac, Qt/Windows, and Qt/X11 INSTALL file.
+****************************************************************************/
+
+/*! \group installation
+\title Installation
+\ingroup buildsystem
+\ingroup topics
+\brief Installing Qt on supported platforms.
+
+The installation procedure is different for the different Qt platforms.
+Please follow the instructions for your platform from the following list.
+
+\generatelist{related}
+*/
+
+/*! \page install-x11.html
+
+\title Installing Qt/X11
+\ingroup installation
+\brief How to install Qt on platforms with X11.
+
+\list 1
+\o  If you have the commercial edition of Qt, install your license
+    file as \c{$HOME/.qt-license}.
+
+    For the open source version you do not need a license file.
+
+\o  Unpack the archive if you have not done so already. For example,
+    if you have the \c{qt-x11-opensource-desktop-4.3.5.tar.gz}
+    package, type the following commands at a command line prompt:
+
+\code
+    cd /tmp
+    gunzip qt-x11-opensource-desktop-4.3.5.tar.gz        # uncompress the archive
+    tar xvf qt-x11-opensource-desktop-4.3.5.tar          # unpack it
+\endcode
+
+    This creates the directory \c{/tmp/qt-x11-opensource-desktop-4.3.5}
+    containing the files from the archive. We only support the GNU version of
+    the tar archiving utility. Note that on some systems it is called gtar.
+
+\o  Building
+
+    To configure the Qt library for your machine type, run the
+    \c{./configure} script in the package directory.
+
+    By default, Qt is configured for installation in the
+    \c{/usr/local/Trolltech/Qt-4.3.5} directory, but this can be
+    changed by using the \c{-prefix} option. Alternatively, the
+    \c{-prefix-install} option can be used to specify a "local"
+    installation within the source directory.
+
+\code
+    cd /tmp/qt-x11-opensource-desktop-4.3.5
+    ./configure
+\endcode
+
+    Type \c{./configure -help} to get a list of all available options.
+
+    To create the library and compile all the demos, examples, tools,
+    and tutorials, type:
+
+\code
+    make
+\endcode
+
+    If you did not configure Qt using the \c{-prefix-install} option,
+    you need to install the library, demos, examples, tools, and
+    tutorials in the appropriate place. To do this, type:
+
+\code
+    su -c "make install"
+\endcode
+
+    and enter the root password.
+
+    Note that on some systems the make utility is named differently,
+    e.g. gmake. The configure script tells you which make utility to
+    use.
+
+    \bold{Note:} If you later need to reconfigure and rebuild Qt from the
+    same location, ensure that all traces of the previous configuration are
+    removed by entering the build directory and typing \c{make confclean}
+    before running \c configure again.
+
+\o  Environment variables
+
+    In order to use Qt, some environment variables needs to be
+    extended.
+
+\code
+    PATH               - to locate qmake, moc and other Qt tools
+\endcode
+
+    This is done like this:
+
+    In \c{.profile} (if your shell is bash, ksh, zsh or sh), add the
+    following lines:
+
+\code
+    PATH=/usr/local/Trolltech/Qt-4.3.5/bin:$PATH
+    export PATH
+\endcode
+
+    In \c{.login} (in case your shell is csh or tcsh), add the following line:
+
+\code
+    setenv PATH /usr/local/Trolltech/Qt-4.3.5/bin:$PATH
+\endcode
+
+    If you use a different shell, please modify your environment
+    variables accordingly.
+
+    For compilers that do not support rpath you must also extended the
+    \c LD_LIBRARY_PATH environment variable to include
+    \c{/usr/local/Trolltech/Qt-4.3.5/lib}. On Linux with GCC this step
+    is not needed.
+
+\o  That's all. Qt is now installed.
+
+    If you are new to Qt, we suggest that you take a look at the demos
+    and examples to see Qt in action. Run the Qt Examples and Demos
+    either by typing \c qtdemo on the command line or through the
+    desktop's Start menu.
+
+    You might also want to try the following links:
+
+    \list
+    \o \l{Configuring Qt}
+    \o \l{How to Learn Qt}
+    \o \l{Qt Tutorial}
+    \o \l{Developer Zone}
+    \o \l{Deploying Qt Applications}
+    \endlist
+\endlist
+
+    We hope you will enjoy using Qt. Good luck!
+
+*/
+
+/*! \page install-win.html
+
+\title Installing Qt/Windows
+\ingroup installation
+\brief How to install Qt on Windows.
+
+\table
+\row \o \bold{Notes:}
+\list
+\o If you have obtained a binary package for this platform,
+consult the installation instructions provided instead of the ones in
+this document.
+\o \l{Qt Open Source Edition} is not officially supported for use with
+any version of Visual Studio. Integration with Visual Studio is available
+as part of the \l{Qt Commercial Editions}.
+
+\endlist
+\endtable
+
+\list 1
+\o  If you have the commercial edition of Qt, copy the license file
+    from your account on dist.trolltech.com into your home directory
+    (this may be known as the \c userprofile environment variable) and
+    rename it to \c{.qt-license}. This renaming process must be done
+    using a \e{command prompt} on Windows, \bold{not} with Windows Explorer.
+    For example on Windows 2000, \c{%USERPROFILE%} should be something
+    like \c{C:\Documents and Settings\username}
+
+    For the open source version you do not need a license file.
+
+\o  Uncompress the files into the directory you want Qt installed;
+    e.g. \c{C:\Qt\4.3.5}.
+
+    \bold{Note:} The install path must not contain any spaces.
+
+\o Environment variables
+
+    In order to build and use Qt, the \c PATH environment variable needs to be
+    extended:
+
+\code
+    PATH               - to locate qmake, moc and other Qt tools
+\endcode
+
+    This is done by adding \c{c:\Qt\4.3.5\bin} to the \c PATH variable.
+
+    For newer versions of Windows, \c PATH can be extended through
+    the \menu{Control Panel|System|Advanced|Environment variables} menu
+    and for older versions by editing \c{c:\autoexec.bat}.
+
+    You may also need to ensure that the locations of your compiler and
+    other build tools are listed in the \c PATH variable. This will depend
+    on your choice of software development environment.
+
+    \bold{Note}: If you don't use the configured shells, which is
+    available in the application menu, in the \l{Qt Open Source
+    Edition}, \c configure requires that \c sh.exe is not in the path
+    or that it is run from \c msys. This also goes for mingw32-make.
+
+\o  Building
+
+    To configure the Qt library for your machine type:
+
+\code
+    C:
+    cd \Qt\4.3.5
+    configure
+\endcode
+
+    Type \c{configure -help} to get a list of all available options.
+
+    If you have multiple compilers installed, and want to build the Qt library
+    using a specific compiler, you must specify a \c qmake specification.
+    This is done by pasing \c{-platform <spec>} to configure; for example:
+
+\code
+    configure -platform win32-msvc
+\endcode
+
+    In some cases you need to set up the compilation environment before running
+    configure in order to use the right compiler. For instance, you need to do this
+    if you have Visual Studio 2005 installed and want to compile Qt using the x64
+    compiler because the 32-bit and 64-bit compiler both use the same
+    \c qmake specification file.
+    This is usually done by selecting
+    \menu{Microsoft Visual Studio 2005|Visual Studio Tools|<Command Prompt>}
+    from the \gui Start menu.
+
+    The actual commands needed to build Qt depends on your development
+    system. For Microsoft Visual Studio to create the library and
+    compile all the demos, examples, tools and tutorials type:
+
+\code
+    nmake
+\endcode
+
+    \bold{Note:} If you later need to reconfigure and rebuild Qt from the
+    same location, ensure that all traces of the previous configuration are
+    removed by entering the build directory and typing \c{make confclean}
+    before running \c configure again.
+
+\o  That's all. Qt is now installed.
+
+    If you are new to Qt, we suggest that you take a look at the demos
+    and examples to see Qt in action. Run the Qt Examples and Demos
+    either by typing \c qtdemo on the command line or through the
+    desktop's Start menu.
+
+    You might also want to try the following links:
+
+    \list
+    \o \l{How to Learn Qt}
+    \o \l{Qt Tutorial}
+    \o \l{Developer Zone}
+    \o \l{Deploying Qt Applications}
+    \endlist
+
+\endlist
+
+    We hope you will enjoy using Qt. Good luck!
+
+*/
+
+/*! \page install-mac.html
+
+\title Installing Qt/Mac
+\ingroup installation
+\brief How to install Qt on Mac OS X.
+
+\bold{Note for the binary package}: If you have the binary package, simply double-click on the Qt.mpkg
+and follow the instructions to install Qt. You can later run the \c{uninstal-qt.py}
+script to uninstall the binary package. The script is located in /Developer/Tools and
+must be run as root.
+
+What follows is how to install Qt/Mac from the source package.
+
+\list 1
+\o  If you have the commercial edition of Qt, install your license
+    file as \c{$HOME/.qt-license}.
+
+    For the open source version you do not need a license file.
+
+\o  Unpack the archive if you have not done so already. For example,
+    if you have the \c{qt-mac-opensource-desktop-4.3.5.tar.gz}
+    package, type the following commands at a command line prompt:
+
+\code
+    cd /tmp
+    gunzip qt-mac-opensource-desktop-4.3.5.tar.gz        # uncompress the archive
+    tar xvf qt-mac-opensource-desktop-4.3.5.tar          # unpack it
+\endcode
+
+    This creates the directory \c{/tmp/qt-mac-opensource-desktop-4.3.5}
+    containing the files from the archive.
+
+\o  Building
+
+    To configure the Qt library for your machine type, run the
+    \c{./configure} script in the package directory.
+
+    By default, Qt is configured for installation in the
+    \c{/usr/local/Trolltech/Qt-4.3.5} directory, but this can be
+    changed by using the \c{-prefix} option. Alternatively, the
+    \c{-prefix-install} option can be used to specify a "local"
+    installation within the source directory.
+
+\code
+    cd /tmp/qt-mac-opensource-desktop-4.3.5
+    ./configure
+\endcode
+
+    Type \c{./configure -help} to get a list of all available options.
+
+    Note that you will need to specify \c{-universal} if you want to
+    build universal binaries, and also supply a path to the \c{-sdk}
+    option if your development machine has a PowerPC CPU. By default,
+    Qt is built as a framework, but you can built it as a set of
+    dynamic libraries (dylibs) by specifying the \c{-no-framework}
+    option.
+
+    Qt can also be configured to be built with debugging symbols. This
+    process is described in detail in the \l{Debugging Techniques}
+    document.
+
+    To create the library and compile all the demos, examples, tools,
+    and tutorials, type:
+
+\code
+    make
+\endcode
+
+    If you did not configure Qt using the \c{-prefix-install} option,
+    you need to install the library, demos, examples, tools, and
+    tutorials in the appropriate place. To do this, type:
+
+\code
+    sudo make install
+\endcode
+
+    and enter your password, this requires that you have administrator access
+    to your machine.
+
+    \bold{Note:} If you later need to reconfigure and rebuild Qt from the
+    same location, ensure that all traces of the previous configuration are
+    removed by entering the build directory and typing \c{make confclean}
+    before running \c configure again.
+
+\o  Environment variables
+
+    In order to use Qt, some environment variables need to be
+    extended.
+
+\code
+    PATH               - to locate qmake, moc and other Qt tools
+\endcode
+
+    This is done like this:
+
+    In \c{.profile} (if your shell is bash), add the following lines:
+
+\code
+    PATH=/usr/local/Trolltech/Qt-4.3.5/bin:$PATH
+    export PATH
+\endcode
+
+    In \c{.login} (in case your shell is csh or tcsh), add the following line:
+
+\code
+    setenv PATH /usr/local/Trolltech/Qt-4.3.5/bin:$PATH
+\endcode
+
+    If you use a different shell, please modify your environment
+    variables accordingly.
+
+\o  That's all. Qt is now installed.
+
+    If you are new to Qt, we suggest that you take a look at the demos
+    and examples to see Qt in action. Run the Qt Examples and Demos
+    either by typing \c qtdemo on the command line or through the
+    desktop's Start menu.
+
+    You might also want to try the following links:
+
+    \list
+    \o \l{How to Learn Qt}
+    \o \l{Qt Tutorial}
+    \o \l{Developer Zone}
+    \o \l{Deploying Qt Applications}
+    \endlist
+\endlist
+
+    We hope you will enjoy using Qt. Good luck!
+
+*/

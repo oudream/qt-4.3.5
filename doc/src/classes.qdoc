@@ -1,0 +1,14 @@
+/*!
+    \page classes.html
+    \title Qt's Classes
+    \ingroup classlists
+
+    This is a list of all Qt classes excluding the \l{Qt 3
+    compatibility classes}. For a shorter list that only includes the
+    most frequently used classes, see \l{Qt's Main Classes} and
+    the \l{http://doc.trolltech.com/extras/qt43-class-chart.pdf}{Qt 4.3 Class Chart (PDF)}.
+
+    \generatelist classes
+
+    \sa {Qt 3 Compatibility Classes}, {Qt's Modules}
+*/

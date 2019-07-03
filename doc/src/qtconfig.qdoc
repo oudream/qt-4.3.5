@@ -1,0 +1,15 @@
+/*!
+    \page qtconfig.html
+    \title Configuring Qt
+    \ingroup qttools
+    \keyword qtconfig
+
+    The \c qtconfig tool allows users to customize the default settings for
+    Qt applications on a per-user basis, enabling features such as the widget
+    style to be changed without requiring applications to be recompiled.
+
+    \c qtconfig is available on X11 platforms and should be installed alongside
+    the \l{Qt's Tools}{other tools} supplied with Qt.
+
+    \image qtconfig-appearance.png
+*/

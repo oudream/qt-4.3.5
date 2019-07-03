@@ -1,0 +1,9 @@
+/*!
+    \example opengl/samplebuffers
+    \title Sample Buffers Example
+
+    The Sample Buffers example demonstrates how to use and enable
+    sample buffers in a QGLWidget.
+
+    \image samplebuffers-example.png
+*/

@@ -1,0 +1,60 @@
+/*! 
+    \page qaxserver-demo-simple.html
+
+    \title A standard ActiveX and the "simple" ActiveQt widget
+
+    \input examples/activeqt/simple-demo.qdocinc
+*/
+
+/*!
+    \example activeqt/simple
+    \title Simple Example (ActiveQt)
+
+    The Simple example demonstrates the use of
+    QAxBindable::requestPropertyChange() and
+    QAxBindable::propertyChanged(), and the use of the default
+    QAxFactory through the \c QAXFACTORY_DEFAULT() macro.
+    
+    The ActiveX control in this example is a laid out QWidget with a
+    QSlider, a QLCDNumber and a QLineEdit. It provides a
+    signal/slot/property interface to change the values of the slider
+    and the line edit, and to get notified of any property changes.
+
+    \quotefromfile activeqt/simple/main.cpp
+
+    The Qt implementation of the ActiveX for this example is
+    \skipto class QSimpleAX
+    \printto #include
+
+    The control is exported using the default QAxFactory
+    \skipto QAXFACTORY
+    \printuntil )
+
+    To build the example you must first build the QAxServer library.
+    Then run qmake and your make tool in \c examples/activeqt/simple.
+
+    The \l{qaxserver-demo-simple.html}{demonstration} requires your
+    WebBrowser to support ActiveX controls, and scripting to be enabled.
+
+    The simple ActiveX control is embedded using the \c <object> tag.
+
+    \quotefromfile examples/activeqt/simple-demo.qdocinc
+    \skipto <object ID
+    \printuntil </object>
+
+    A simple HTML button is connected to the ActiveQt's about() slot.
+
+    \printuntil </FORM>
+
+    A second ActiveX control - the standard Calendar Control - is instantiated
+
+    \skipto <object ID
+    \printuntil </object>
+
+    Events from the ActiveX controls are handled using both Visual Basic Script
+    and JavaScript.
+
+    \quotefromfile examples/activeqt/simple-demo.qdocinc
+    \skipto <SCRIPT
+    \printto endraw
+*/
